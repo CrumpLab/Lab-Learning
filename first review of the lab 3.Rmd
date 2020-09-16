@@ -1,0 +1,152 @@
+---
+title: "learning lab 3"
+author: "Soyeon Lee"
+date: "9/15/2020"
+output: html_document
+---
+
+```{r}
+sample(x=1:2,size=10,replace=TRUE)
+```
+```{r}
+sample(x=1:2,size=10, replace=TRUE,prob = c(.9,.1))
+```
+```{r}
+sample(x=c("heads","tails"),size=10,replace=TRUE)
+```
+
+```{r}
+x<-1:2
+sample(x,size=10,replace=TRUE)
+```
+```{r}
+x<-c("heads","tails")
+sample(x, size=10,replace=TRUE,prob=c(.9,.1))
+```
+```{r}
+x<-1:1000
+sample(x,size=10,replace=FALSE)
+```
+```{r}
+rnorm(100,0,1)
+my_sample<-rnorm(100,0,1)
+hist(my_sample)
+table(my_sample)
+```
+```{r}
+my_data<-data.frame(sample_data=rnorm(100,0,1),sample=1)
+library(ggplot2)
+ggplot(my_data,aes(x=sample_data))+geom_histogram(binwidth = .1)
+```
+```{r}
+my_data<-data.frame(sample_data=rnorm(100,0,1),sample=rep(1:4,times=25))
+ggplot(my_data,aes(x=sample_data))+geom_histogram()+facet_wrap(~sample)
+```
+```{r}
+sample_data<-rnorm(100,0,1)
+hist(sample_data)
+
+```
+```{r}
+
+my_data<-data.frame(sample_data=rnorm(100,0,1),sample(rep(1:4,each=25))
+
+ggplot(my_data,aes(x=sample_data))+geom_histogram()+facet_wrap(~sample)                  
+```
+```{r}
+hist(rnorm(100,0,1))
+```
+```{r}
+rnorm(n=100,mean=0,sd=1)
+hist(rnorm(n=100,mean=0,sd=1))
+hist(runif(n=100,min=0,max=1))
+hist(runif(n=10,min=1,max=1)
+```
+
+```{r}
+my_sample<-runif(n=100,min=0,max=1)
+my_sample<.05
+my_sample[my_sample<.05]
+length(my_sample[my_sample<.05])
+```
+```{r}
+my_sample<-runif(100,0,1)
+length(my_sample[my_sample<.05])
+```
+```{r}
+rexp(1000,rate=2)
+hist(rexp(1000,rate=2))
+hist(rexp(1000,rate=20))
+```
+hist(rbinom(100,1,prob))
+```{r}
+hist(rbinom(100,1,prob=c(.5,.5)))
+hist(rbinom(100,1,prob=c(.1,.9)))
+```
+```{r}
+my_sample<-rnorm(1000,0,1)
+mean(my_sample)
+sd(my_sample)
+skewness(my_sample)
+kurtosis(my_sample)
+hist(my_sample)
+```
+```{r}
+my_sample<-rexp(1000,2)
+mean(my_sample)
+sd(my_sample)
+skewness(my_sample)
+kurtosis(my_sample)
+hist(my_sample)
+```
+```{r}
+my_sample<-rexp(1000,50)
+skewness(my_sample)
+kurtosis(my_sample)
+
+```
+```{r}
+flip<-c()
+outcome<-c()
+proportion_heads<-c()
+proportion_tails<-c()
+
+for(i in 1:1000){
+flip[i]<-i
+outcome[i]<-sample(x=c(0,1),size=1)
+proportion_heads[i]=sum(outcome)/length(outcome)
+proportion_tails[i]=1-proportion_heads[i]
+}
+
+sim_data<-data.frame(flip,
+                    outcome,
+                    proportion_heads,
+                    proportion_tails)
+
+ggplot(sim_data,aes(x=flip,y=proportion_heads))+geom_point()+geom_line()+geom_hline(yintercept=.5,color="red")
+```
+```{r}
+flip<-c()
+outcome<-c()
+proportion_heads<-c()
+proportion_tails<-c()
+
+for(i in 1:1000){
+  flip[i]<-i
+  outcome[i]<-sample(x=c(1,0),size=1)
+  proportion_heads[i]=sum(outcome)/length(outcome)
+  proportion_tails[i]=1-proportion_heads[i]
+}
+
+sim_data<-data.frame(flip,
+                     outcome,
+                     proportion_heads,
+                    proportion_tails)
+
+ggplot(sim_data, aes(x=flip,y=proportion_heads))+
+  geom_point()+
+  geom_line()+
+  geom_hline(yintercept=.5,color="red")
+```
+
+
