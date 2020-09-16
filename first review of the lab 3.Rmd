@@ -47,12 +47,17 @@ sample_data<-rnorm(100,0,1)
 hist(sample_data)
 
 ```
+
+
 ```{r}
-
-my_data<-data.frame(sample_data=rnorm(100,0,1),sample(rep(1:4,each=25))
-
-ggplot(my_data,aes(x=sample_data))+geom_histogram()+facet_wrap(~sample)                  
+my_data <- data.frame(sample_data = rnorm(100,0,1),
+                      sample = sample(rep(1:4,each=25)))
+ggplot(my_data, aes(x=sample_data))+
+  geom_histogram()+
+  facet_wrap(~sample)                  
 ```
+
+
 ```{r}
 hist(rnorm(100,0,1))
 ```
@@ -60,7 +65,7 @@ hist(rnorm(100,0,1))
 rnorm(n=100,mean=0,sd=1)
 hist(rnorm(n=100,mean=0,sd=1))
 hist(runif(n=100,min=0,max=1))
-hist(runif(n=10,min=1,max=1)
+hist(runif(n=10,min=1,max=1))
 ```
 
 ```{r}
@@ -84,6 +89,7 @@ hist(rbinom(100,1,prob=c(.5,.5)))
 hist(rbinom(100,1,prob=c(.1,.9)))
 ```
 ```{r}
+library(moments)
 my_sample<-rnorm(1000,0,1)
 mean(my_sample)
 sd(my_sample)
