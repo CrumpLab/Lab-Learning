@@ -149,4 +149,9 @@ ggplot(sim_data, aes(x=flip,y=proportion_heads))+
   geom_hline(yintercept=.5,color="red")
 ```
 
+```{r}
+n<-seq(1000,100000,1000)
+sample_mean<-c()
+sample_sd<-c()
+```
 
